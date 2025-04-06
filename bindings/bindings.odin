@@ -127,6 +127,9 @@ foreign glfw {
 
     GetRequiredInstanceExtensions ::  proc(count: ^u32) -> ^cstring ---;
 
+    SetMonitorCallback  :: proc(cbfun: Monitor_Proc) -> Monitor_Proc ---;
+    SetJoystickCallback :: proc(cbfun: Joystick_Proc) -> Joystick_Proc ---;
+
     SetWindowIconifyCallback      :: proc(window: Window_Handle, cbfun: Window_Iconify_Proc) -> Window_Iconify_Proc ---;
     SetWindowRefreshCallback      :: proc(window: Window_Handle, cbfun: Window_Refresh_Proc) -> Window_Refresh_Proc ---;
     SetWindowFocusCallback        :: proc(window: Window_Handle, cbfun: Window_Focus_Proc) -> Window_Focus_Proc ---;
@@ -135,7 +138,6 @@ foreign glfw {
     SetWindowPosCallback          :: proc(window: Window_Handle, cbfun: Window_Pos_Proc) -> Window_Pos_Proc ---;
     SetFramebufferSizeCallback    :: proc(window: Window_Handle, cbfun: Framebuffer_Size_Proc) -> Framebuffer_Size_Proc ---;
     SetDropCallback               :: proc(window: Window_Handle, cbfun: Drop_Proc) -> Drop_Proc ---;
-    SetMonitorCallback            :: proc(window: Window_Handle, cbfun: Monitor_Proc) -> Monitor_Proc ---;
     SetWindowMaximizeCallback     :: proc(window: Window_Handle, cbfun: Window_Maximize_Proc) -> Window_Maximize_Proc ---;
     SetWindowContentScaleCallback :: proc(window: Window_Handle, cbfun: Window_Content_Scale_Proc) -> Window_Content_Scale_Proc ---;
 
@@ -146,7 +148,6 @@ foreign glfw {
     SetCharCallback        :: proc(window: Window_Handle, cbfun: Char_Proc) -> Char_Proc ---;
     SetCharModsCallback    :: proc(window: Window_Handle, cbfun: Char_Mods_Proc) -> Char_Mods_Proc ---;
     SetCursorEnterCallback :: proc(window: Window_Handle, cbfun: Cursor_Enter_Proc) -> Cursor_Enter_Proc ---;
-    SetJoystickCallback    :: proc(window: Window_Handle, cbfun: Joystick_Proc) -> Joystick_Proc ---;
 
     SetErrorCallback :: proc(cbfun: Error_Proc) -> Error_Proc ---;
     

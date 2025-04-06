@@ -414,6 +414,14 @@ extension_supported :: #force_inline proc(extension: string) -> bool {
     return cast(bool)bind.ExtensionSupported(strings.unsafe_string_to_cstring(extension)); // TODO: is this safe?
 }
 
+set_monitor_callback :: #force_inline proc(cbfun: Monitor_Proc) -> Monitor_Proc {
+    return bind.SetMonitorCallback(cbfun);
+}
+
+set_joystick_callback :: #force_inline proc(cbfun: Joystick_Proc) -> Joystick_Proc {
+    return bind.SetJoystickCallback(cbfun);
+}
+
 set_window_iconify_callback :: #force_inline proc(window: Window_Handle, cbfun: Window_Iconify_Proc) -> Window_Iconify_Proc {
     return bind.SetWindowIconifyCallback(window, cbfun);
 }
@@ -444,10 +452,6 @@ set_framebuffer_size_callback :: #force_inline proc(window: Window_Handle, cbfun
 
 set_drop_callback :: #force_inline proc(window: Window_Handle, cbfun: Drop_Proc) -> Drop_Proc {
     return bind.SetDropCallback(window, cbfun);
-}
-
-set_monitor_callback :: #force_inline proc(window: Window_Handle, cbfun: Monitor_Proc) -> Monitor_Proc {
-    return bind.SetMonitorCallback(window, cbfun);
 }
 
 set_window_maximize_callback :: #force_inline proc(window: Window_Handle, cbfun: Window_Maximize_Proc) -> Window_Maximize_Proc {
@@ -484,10 +488,6 @@ set_char_mods_callback :: #force_inline proc(window: Window_Handle, cbfun: Char_
 
 set_cursor_enter_callback :: #force_inline proc(window: Window_Handle, cbfun: Cursor_Enter_Proc) -> Cursor_Enter_Proc {
     return bind.SetCursorEnterCallback(window, cbfun);
-}
-
-set_joystick_callback :: #force_inline proc(window: Window_Handle, cbfun: Joystick_Proc) -> Joystick_Proc {
-    return bind.SetJoystickCallback(window, cbfun);
 }
 
 set_error_callback :: #force_inline proc(cbfun: Error_Proc) -> Error_Proc {

@@ -29,6 +29,9 @@ Gamepad_State :: struct {
 };
 
 /*** Procedure type declarations ***/
+Monitor_Proc  :: #type proc "c" (monitor: Monitor_Handle, event: i32);
+Joystick_Proc :: #type proc "c" (joy, event: i32);
+
 Window_Iconify_Proc       :: #type proc "c" (window: Window_Handle, iconified: i32);
 Window_Refresh_Proc       :: #type proc "c" (window: Window_Handle);
 Window_Focus_Proc         :: #type proc "c" (window: Window_Handle, focused: i32);
@@ -39,7 +42,6 @@ Window_Maximize_Proc      :: #type proc "c" (window: Window_Handle, iconified: i
 Window_Content_Scale_Proc :: #type proc "c" (window: Window_Handle, xscale, yscale: f32);
 Framebuffer_Size_Proc     :: #type proc "c" (window: Window_Handle, width, height: i32);
 Drop_Proc                 :: #type proc "c" (window: Window_Handle, count: i32, paths: ^cstring);
-Monitor_Proc              :: #type proc "c" (window: Window_Handle);
 
 Key_Proc          :: #type proc "c" (window: Window_Handle, key, scancode, action, mods: i32);
 Mouse_Button_Proc :: #type proc "c" (window: Window_Handle, button, action, mods: i32);
@@ -48,6 +50,5 @@ Scroll_Proc       :: #type proc "c" (window: Window_Handle, xoffset, yoffset: f6
 Char_Proc         :: #type proc "c" (window: Window_Handle, codepoint: rune);
 Char_Mods_Proc    :: #type proc "c" (window: Window_Handle, codepoint: rune, mods: i32);
 Cursor_Enter_Proc :: #type proc "c" (window: Window_Handle, entered: i32);
-Joystick_Proc     :: #type proc "c" (joy, event: i32);
 
 Error_Proc            :: #type proc "c" (error: i32, description: cstring);
